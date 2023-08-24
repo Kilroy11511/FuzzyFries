@@ -6,7 +6,7 @@ import plotly.express as px
 warnings.filterwarnings("ignore")
 
 st.title("Netflix Analysis")
-st.write("Hello evryone this is are site called the fuzzy fries and the piont of this site is to edjucate are selvs and ot ")
+st.write("Hello evryone this is are site called the fuzzy fries and the piont of this site is to edjucate are selves and others on web creation  ")
 netflix = pd.read_csv('https://raw.githubusercontent.com/Kilroy11511/FuzzyFries/main/Netflix%20Userbase.csv')
 
 netflix.drop(["Plan Duration"], axis=1, inplace=True) #only one value in column, irrelevant
@@ -16,7 +16,7 @@ st.dataframe(netflix.head())
 
 #for thomas' pie chart
 planValueCounts = netflix['Subscription Type'].value_counts()
-fig = px.pie(netflix, values=planValueCounts.values, names=planValueCounts.index)
+fig = px.pie(netflix, values=planValueCounts.values, names=planValueCounts.index, title="Proportions of Subscription Types")
 st.plotly_chart(fig)
 
 st.write("This visualization shows the ratio of different subscription types to each other. We can see basic is 40% of users, with standard at 30.7% and Premium at 29.3%.")
