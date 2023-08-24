@@ -40,7 +40,7 @@ st.plotly_chart(fig)
 
 premiumDF = netflix[netflix['Subscription Type'] == "Premium"]
 premiumDFVC = premiumDF['Binned Ages'].value_counts()
-fig = px.pie(premiumDF, values=premiumDFVC.values, names=premiumDFVC.index,'Premium Plan')
+fig = px.pie(premiumDF, values=premiumDFVC.values, names=premiumDFVC.index,title='Premium Plan')
 st.plotly_chart(fig)
 
 st.write("The pie charts show that as age increases, the likelihood of them subscribing to a plan however after the age of 50 this chance and likelihood drops sharply for a yet unknown reason.")
