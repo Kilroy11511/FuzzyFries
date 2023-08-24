@@ -6,7 +6,7 @@ import plotly.express as px
 warnings.filterwarnings("ignore")
 
 st.title("Netflix Analysis")
-st.write("Hello evryone this is are site called the fuzzy fries and the piont of this site is to  ")
+st.write("Hello evryone this is are site called the fuzzy fries and the piont of this site is to edjucate are selvs and ot ")
 netflix = pd.read_csv('https://raw.githubusercontent.com/Kilroy11511/FuzzyFries/main/Netflix%20Userbase.csv')
 
 netflix.drop(["Plan Duration"], axis=1, inplace=True) #only one value in column, irrelevant
@@ -45,7 +45,7 @@ st.plotly_chart(fig)
 st.write("The pie charts show that as age increases show does the likelihood of them subscribing to a plan however after the age of 50 this chance and likelihood drops sharply for a yet unknown reason.")
 
 #for bar chart
-netflixGrouped = netflix.groupby(['Subscription Type']).mean()['Age']
+netflixGrouped = netflix.groupby(['Subscription Type']).mean(numeric_only=True)['Age']
 fig = px.bar(netflix, x=netflixGrouped.index, y =netflixGrouped.values)
 st.plotly_chart(fig)
 
