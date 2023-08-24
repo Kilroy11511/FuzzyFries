@@ -6,7 +6,7 @@ import plotly.express as px
 warnings.filterwarnings("ignore")
 
 st.title("Netflix Analysis")
-st.write("Hello evryone this is are site called the fuzzy fries. This site is about  ")
+st.write("Hello evryone this is are site called the fuzzy fries and the rese ")
 netflix = pd.read_csv('https://raw.githubusercontent.com/Kilroy11511/FuzzyFries/main/Netflix%20Userbase.csv')
 
 netflix.drop(["Plan Duration"], axis=1, inplace=True) #only one value in column, irrelevant
@@ -22,7 +22,10 @@ st.plotly_chart(fig)
 st.write("This visualization shows the ratio of different subscription types to each other. We can see basic is 40% of users, with standard at 30.7% and Premium at 29.3%.")
 
 #for eden's pie chart
-st.write("The pie charts show that as age increases show does the likelihood of them subscribing to a plan however after the age of 50 this chance and likelihood drops sharply for a yet unknown reason.")
+ageBins = [25, 30, 35, 40, 45, 50, 55]
+labels = ['25-30', '30-35', '35-40', '40-45', '45-50', '50-55']
+
+netflix['Binned Ages'] = pd.cut(netflix['Age'], bins=ageBins, right=True, labels=labels)
 
 basicDF = netflix[netflix['Subscription Type'] == "Basic"]
 basicDFVC = basicDF['Binned Ages'].value_counts()
@@ -39,6 +42,7 @@ premiumDFVC = premiumDF['Binned Ages'].value_counts()
 fig = px.pie(premiumDF, values=premiumDFVC.values, names=premiumDFVC.index)
 st.plotly_chart(fig)
 
+st.write("The pie charts show that as age increases show does the likelihood of them subscribing to a plan however after the age of 50 this chance and likelihood drops sharply for a yet unknown reason.")
 #for bar chart
 fig = px.bar(netflix, x=netflixGrouped.index, y =netflixGrouped.values)
 st.plotly_chart(fig)
