@@ -29,7 +29,7 @@ netflix['Binned Ages'] = pd.cut(netflix['Age'], bins=ageBins, right=True, labels
 
 basicDF = netflix[netflix['Subscription Type'] == "Basic"]
 basicDFVC = basicDF['Binned Ages'].value_counts()
-fig = px.pie(basicDFVC, values='Binned Ages', names=basicDFVC.index, title='Ages')
+fig = px.pie(basicDFVC, values=basicDFVC.values, names=basicDFVC.index, title='Ages')
 st.plotly_chart(fig)
 
 standardDF = netflix[netflix['Subscription Type'] == "Standard"]
