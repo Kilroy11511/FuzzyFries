@@ -13,11 +13,12 @@ st.write(
     "My name is Olivia and I am 15 years old. Some of my hobbies are hanging out with my friends and going out with family. I was interested in AI Camp because I've never coded before."
 )  #put bios here
 st.write(
-    "Hi! my name is Thomas and I am 22 years old. I am a mentor at AI Camp. In my free time, I play video games and work out."
-)
-st.write(
     "My name is Eden I'm currently going to 10th grade I had some prior experience in coding through designing a VR Map for a VR camp not that long ago."
 )
+st.write(
+    "Hi! my name is Thomas and I am 22 years old. I am a mentor at AI Camp. In my free time, I play video games and work out."
+)
+
 st.write(
     "Hello everyone! This is our site called the Fuzzy Fries and the point of this site is to educate ourselves and others on data analysis. The reason why we chose a data set on Netflix is because it is what interested us the most and we want to know if our hypothesis on whether or not people's age affects what kind of subscription they buy is correct."
 )
